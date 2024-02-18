@@ -2,9 +2,10 @@
 
 import { createBoard } from "@/actions/create-board";
 
-import FormInput from "./form-input";
-import FormButton from "./form-button";
+
 import { useAction } from "@/hooks/use-action";
+import FormInput from "@/components/form/form-input";
+import FormSubmit from "@/components/form/form-submit";
 
 export default function Form() {
   const { execute, fieldErrors } = useAction(createBoard, {
@@ -25,9 +26,15 @@ export default function Form() {
   return (
     <form action={onSubmit}>
       <div className="flex flex-col space-x-2">
-        <FormInput errors={fieldErrors} />
+        <FormInput
+          id="title"
+          errors={fieldErrors}
+          label="Título del tablero"
+        />
       </div>
-      <FormButton />
+      <FormSubmit 
+        
+      >Guardar</FormSubmit>
     </form>
   );
 }

@@ -22,7 +22,6 @@ const handler = async (data) => {
   let board;
 
   try {
-    throw new Error("balbala")
     board = await db.board.create({
       data: {
         title,
